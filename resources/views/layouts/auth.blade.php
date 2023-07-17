@@ -1,6 +1,6 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-@include('layouts.partials.head')
+<html dir="ltr" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@include('layouts.partials.auth-head')
 
 <body>
     @include('layouts.partials.preloader')
@@ -74,12 +74,9 @@
             <!-- End Sidebar scroll-->
         </aside>
 
-        <div class="page-wrapper">
-            @include('pages.dashboard')
-        </div>
         @yield('content')
-
-        @include('layouts.partials.scripts')
+    </div>
+    @include('layouts.partials.auth-script')
 </body>
 
 </html>

@@ -4,11 +4,11 @@
             <!-- ============================================================== -->
             <!-- Logo -->
             <!-- ============================================================== -->
-            <a class="navbar-brand" href="dashboard.html">
+            <a class="navbar-brand" href="#">
                 <!-- Logo icon -->
                 <b class="logo-icon">
                     <!-- Dark Logo icon -->
-                    <img width="65%" src="../plugins/images/comsys.png" alt="homepage" />
+                    <img width="65%" src="{{ asset('assets/plugins/images/comsys.png') }}" />
                 </b>
                 <!--End Logo icon -->
                 <!--
@@ -43,7 +43,7 @@
                 <li class=" in">
                     <form role="search" class="app-search d-none d-md-block me-3">
                         <input type="text" placeholder="Search..." class="form-control mt-0">
-                        <a href="" class="active">
+                        <a href="#" class="active">
                             <i class="fa fa-search"></i>
                         </a>
                     </form>
@@ -53,8 +53,19 @@
                 <!-- ============================================================== -->
                 <li>
                     <a class="profile-pic" href="#">
-                        <img src="../plugins/images/users/varun.jpg" alt="user-img" width="36"
-                            class="img-circle"><span class="text-white font-medium">Kelvin</span></a>
+                        <img src="{{ asset('assets/plugins/images/users/varun.jpg') }}" width="36"
+                            class="img-circle"><span class="text-white font-medium">{{ Auth::user()->name }}</span></a>
+                </li>
+
+                <li>
+                    <a href="/logout" class="d-flex align-items-start text-center"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <span class="text-white font-medium align-items">Logout</span>
+                    </a>
+
+                    <form id="logout-form" method="POST" action="/logout">
+                        @csrf
+                    </form>
                 </li>
                 <!-- ============================================================== -->
                 <!-- User profile and search -->
